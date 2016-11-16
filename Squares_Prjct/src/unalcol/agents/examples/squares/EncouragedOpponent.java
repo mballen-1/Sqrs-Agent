@@ -34,21 +34,6 @@ public class EncouragedOpponent  implements AgentProgram {
 	int board_size = 0;
 	
 
-	Vector<String> Q ;
-	
-	
-		
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	public EncouragedOpponent(String color){
 		this.color = color;	
 		marked = new boolean[100][100];
@@ -64,55 +49,7 @@ public class EncouragedOpponent  implements AgentProgram {
 		
 	}
 	
-	public int howMany(int i, int j, Percept p){
 		
-		
-		
-		return 0;
-		
-	}
-	
-	
-	
-	public int utility(int i , int j, Percept p){
-		
-		
-		
-		if(((String)p.getAttribute(i+":"+j+":"+Squares.LEFT)).equals(Squares.FALSE))
-			return utility(i ,j-1, p);
-		if(((String)p.getAttribute(i+":"+j+":"+Squares.TOP)).equals(Squares.FALSE))
-            //counter++;
-          if(((String)p.getAttribute(i+":"+j+":"+Squares.BOTTOM)).equals(Squares.FALSE))
-            //counter++;
-          if(((String)p.getAttribute(i+":"+j+":"+Squares.RIGHT)).equals(Squares.FALSE))
-            //counter++;
-          
-         return 0;
-		
-		
-		return 0;
-		
-	}
-	
-	
-
-	public void editCount(int i, int j){
-		if(i<(board_size/2) && j<(board_size/2) ){
-			sq1++;		
-		}
-		if(i>(board_size/2) && j<(board_size/2) ){
-			sq2++;		
-		}
-		if(i<(board_size/2) && j>(board_size/2) ){
-			sq3++;		
-		}
-		if(i>(board_size/2) && j>(board_size/2) ){
-			sq4++;		
-		}
-		
-		
-	}
-	
 	
 	String whereIs(Percept p, int a, int b){
 		 
@@ -343,9 +280,7 @@ public class EncouragedOpponent  implements AgentProgram {
 		
 		if (p.getAttribute(Squares.TURN).equals(color)) {
 			
-			//board_size = Integer.parseInt((String) p.getAttribute(Squares.SIZE));
-
-		
+				
 
 			if (pnumber < total_moves/5 ) {
 				
@@ -371,10 +306,9 @@ public class EncouragedOpponent  implements AgentProgram {
 				 (Squares.FALSE)) 
 					 v.add(Squares.RIGHT);
 				
-				editCount(i,j); 
+				
 				pnumber += 2;
-				//Q.del(i+":"+j+":");
-				return new Action(
+							return new Action(
 				 i+":"+j+":"+v.get((int)(Math.random()*v.size())) );
 
 
